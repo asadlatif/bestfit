@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<form action="./result" method="post">
+  {% for test in Test %}
+  <div class="row">
+    <div class="col-md-10">
+      <input type="radio" name="{{test.id}}" hidden>
+        <h4>{{ forloop.counter }}. {{ test.question }}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <h4>
+      <input type="radio" name="{{ test.id }}" value="{{ test.option_1 }}">
+      {{ test.option_1 }}
+    </h4>
+    </div>
+    <div class="col-md-3">
+      <h4>
+      <input type="radio" name="{{ test.id }}" value="{{ test.option_2 }}">
+      {{ test.option_2 }}
+    </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <h4>
+      <input type="radio" name="{{ test.id }}" value="{{ test.option_3 }}">
+      {{ test.option_3 }}
+    </h4>
+    </div>
+    <div class="col-md-3">
+      <h4>
+      <input class="form_control" type="radio" name="{{ test.id }}" value="{{ test.option_4 }}">
+      {{ test.option_4 }}
+    </h4>
+    </div>
+  </div>
+  {% endfor %}
+  {% csrf_token %}
+  <br>
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-xs-2">
+      <button type="submit" class="btn btn-block btn-success btn-md">Result</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

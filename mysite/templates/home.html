@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome to BestFit</h2>
+  <b>Right Person For Right Place! </b>
+  <p>Mr.
+  {% if user.is_authenticated %}{{ user.username }}
+  {% else %}visitor
+  {% endif %}!
+</p>
+{% endblock %}
